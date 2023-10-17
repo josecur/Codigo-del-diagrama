@@ -1,30 +1,22 @@
 
 package Persona;
 
-import Cursos.Programa;
+import Universidad.Carrera;
 
 
 public class Estudiante {
-    private int id;
+    
     private Persona persona;
-    private Programa programa;
+    private Carrera carrera;
 
-    public Estudiante(int id, Persona persona, Programa programa) {
-        this.id = id;
+    public Estudiante(Persona persona, Carrera carrera) {
         this.persona = persona;
-        this.programa = programa;
+        this.carrera = carrera;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public Persona getPersona() {
         return persona;
-    }
-
-    public Programa getPrograma() {
-        return programa;
     }
     
     public String mostrarNombre() {
@@ -35,7 +27,15 @@ public class Estudiante {
         return persona.getApellido();
     }
     
+    public int mostrarEdad() {
+        return persona.getEdad();
+    }
+    
+    public int mostrarId() {
+        return persona.getId();
+    }
+    
     public String mostrarCarrera() {
-        return programa.getNombredeCarrera();
+        return "El estudiante "+ persona.getNombre() + "esta en la carrera de : " +carrera.getNombredeCarrera();
     }
 }

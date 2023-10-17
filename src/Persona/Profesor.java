@@ -2,18 +2,12 @@
 package Persona;
 
 public class Profesor {
-    private int id;
     private String titulo;
     private Persona persona;
 
-    public Profesor(int id, String titulo, Persona persona) {
-        this.id = id;
+    public Profesor(String titulo, Persona persona) {
         this.titulo = titulo;
         this.persona = persona;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitulo() {
@@ -31,5 +25,7 @@ public class Profesor {
     public String mostrarApellido() {
         return persona.getApellido();
     }
+    
+    
 
 }

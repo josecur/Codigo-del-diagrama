@@ -1,58 +1,69 @@
 
 import Cursos.Curso;
-import Cursos.Programa;
+import Universidad.Carrera;
 import Persona.Estudiante;
 import Persona.Persona;
 import Persona.Profesor;
 import Universidad.Universidad;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args){
-    Estudiante[] listaEst = new Estudiante[2];
-    Profesor[] listaProf  = new Profesor[1];
-    Programa[] listaPrograma = new Programa[1];
+        Universidad Usil = new Universidad("Usil");
+        
+        //Facultades
+        List<Estudiante> listaEstFacIngenieria = new ArrayList<>();
+        List<Profesor> listaProfFacIngenieria = new ArrayList<>();
+        
+        
+        
+        List<Curso> listaCursosIngMecatronica = new ArrayList<>();
+        List<Estudiante> listaEstIngMecatronica = new ArrayList<>();
+        
+        
+        List<Estudiante> listaEstMatematicaI = new ArrayList<>();
+        List<Estudiante> listaEstLenguajeI = new ArrayList<>();
+        
+        //Carreras
+        Carrera IngenieriaMecatronica = new Carrera("Ingenieria Mecatronica",listaCursosIngMecatronica, listaEstIngMecatronica);
+        
+        
+        //Persona  Profesores
+        Persona MiguelAldana = new Persona("Miguel", "Aldana", 40, "San Bartolo", 00001);
+        Persona LinsayIvonnet = new Persona("Linsay", "Ivonnet", 32, "Miraflores", 00002);
+        Persona LuzRamirez = new Persona("Luz", "Ramirez", 48, "San Isidro", 00003);
+        
+        //Persona Estudiantes
+        Persona AngeloMercedez = new Persona("Angelo", "Mercedez", 18, "Comas", 00001);
+        Persona JoaquinJara = new Persona("Joaquin", "Jara", 19, "Comas", 00002);
+        
+        
+        //Profesores
+        Profesor MiguelAldana1 = new Profesor("Ingeniero", MiguelAldana);
+        Usil.agregarProfesor(MiguelAldana1);
+                
+        Profesor LinsayIvonnet1 = new Profesor("Ingeniero", LinsayIvonnet);    
+        Usil.agregarProfesor(LinsayIvonnet1);
+        
+        Profesor LuzRamirez1 = new Profesor("Ingeniero", LuzRamirez); 
+        Usil.agregarProfesor(LuzRamirez1);
+                
+        //Cursos
+        Curso MatematicaI = new Curso("MatematicaI", 4, MiguelAldana1, listaEstMatematicaI);
+        IngenieriaMecatronica.agregarCurso(MatematicaI);
+        
+        Curso LenguajeI = new Curso("LenguajeI", 4, LuzRamirez1, listaEstLenguajeI);
+        IngenieriaMecatronica.agregarCurso(LenguajeI);
+        
+        //Estudiantes
+        
+        
+        
+        //Universidad
+        
+        //Codigo
     
-    
-    Curso[] listCMusica = new Curso[2];
-    
-    //Persona  Profesores
-    Persona AlfonsoUgarte = new Persona("Alfoso", "Ugarte", 46, "San Isidro");
-    
-    //Persona Estudiantes
-    Persona MiguelVidal = new Persona("Miguel","Vidal", 19, "San Miguel");
-    Persona GabrielAscona = new Persona("Gabriel", "Ascona", 20, "Ate");
-    
-    //Profesores
-    Profesor AlfonsoUgarte1 = new Profesor(00001, "Musico", AlfonsoUgarte);
-    listaProf[0] = AlfonsoUgarte1;
-    
-    //Cursos
-    Curso ViolinI = new Curso("Violin I", 5, AlfonsoUgarte1);
-    listCMusica[0] = ViolinI;
-    Curso PianoI = new Curso("Piano I", 4, AlfonsoUgarte1);
-    listCMusica[1] = PianoI;
-    
-    //Carreras
-    Programa Musica = new Programa("Musica", listCMusica);
-    listaPrograma[0] = Musica;
-    
-    //Estudiantes
-    Estudiante miguelVidal1 = new Estudiante(00001, MiguelVidal, Musica);
-    listaEst[0] = miguelVidal1;
-    
-    Estudiante GabrielAscona1 = new Estudiante(00002, GabrielAscona, Musica);
-    listaEst[1] = GabrielAscona1;
-    
-    //Universidad
-    Universidad Usil = new Universidad("Usil", listaPrograma, listaEst, listaProf);
-    
-    //Codigo
-    System.out.println("En la Universidad " + Usil.getNombreUniversidad());
-    Musica.imprimirCursos();
-    
-    Usil.mostrarEstudiantes();
-    Usil.mostrarProfesores();
     
     
     }
